@@ -1,3 +1,29 @@
+<template>
+  <div class="home-container">
+    <!-- 飘落蛋糕动画 -->
+    <FallingFlowers />
+    
+    <div class="home-content">
+      <h1 class="home-title">🎉 生日快乐！ 🎉</h1>
+      <p class="home-message">愿你的每一天都充满甜蜜和快乐！</p>
+      <button class="video-button" @click="goToVideo">
+        🎬 观看特别视频 🎬
+      </button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+import FallingFlowers from '../components/FallingFlowers.vue'
+
+const router = useRouter()
+
+const goToVideo = () => {
+  router.push('/video')
+}
+</script>
+
 <style scoped>
 .home-container {
   min-height: 100vh;
@@ -90,28 +116,4 @@
     transform: scale(1);
   }
 }
-</style><template>
-  <div class="home-container">
-    <!-- 飘落蛋糕动画 -->
-    <FallingFlowers />
-    
-    <div class="home-content">
-      <h1 class="home-title">🎉 生日快乐！ 🎉</h1>
-      <p class="home-message">愿你的每一天都充满甜蜜和快乐！</p>
-      <button class="video-button" @click="goToVideo">
-        🎬 观看特别视频 🎬
-      </button>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { useRouter } from 'vue-router'
-import FallingFlowers from '../components/FallingFlowers.vue'
-
-const router = useRouter()
-
-const goToVideo = () => {
-  router.push('/video')
-}
-</script>
+</style>
