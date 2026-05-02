@@ -82,7 +82,6 @@ const goBack = () => {
   background: transparent;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* 移除边框阴影 */
   margin-bottom: 2rem;
 }
 
@@ -93,6 +92,7 @@ const goBack = () => {
   text-align: center;
   color: #e91e63;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .video-icon {
@@ -109,20 +109,6 @@ const goBack = () => {
 .video-placeholder p {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-}
-  border: none;
-  outline: none;
-  background: transparent;
-  border-radius: 15px;
-}
-
-/* 隐藏视频播放器的默认边框和控制栏背景 */
-.birthday-video::-webkit-media-controls-panel {
-  background: transparent !important;
-}
-
-.birthday-video::-webkit-media-controls {
-  background: transparent !important;
 }
 
 .video-controls {
@@ -162,15 +148,35 @@ const goBack = () => {
   }
 }
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .video-title {
     font-size: 2rem;
   }
   
-  .birthday-video {
-    max-width: 95vw;
-    max-height: 60vh;
+  .video-placeholder {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .video-placeholder h2 {
+    font-size: 1.5rem;
+  }
+  
+  .video-placeholder p {
+    font-size: 1rem;
   }
   
   .back-button {
