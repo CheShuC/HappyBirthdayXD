@@ -8,19 +8,12 @@
       
       <!-- 视频容器 -->
       <div class="video-wrapper">
-        <video 
-          class="birthday-video"
-          controls
-          autoplay
-          muted
-          loop
-          poster=""
-        >
-          <!-- 请替换为您的视频文件路径 -->
-          <source src="@/assets/birthday-video.mp4" type="video/mp4">
-          <source src="@/assets/birthday-video.webm" type="video/webm">
-          您的浏览器不支持视频播放。
-        </video>
+        <div class="video-placeholder">
+          <h2>🎬 生日视频 🎬</h2>
+          <p>这里将播放特别的生日祝福视频</p>
+          <div class="video-icon">📹</div>
+          <p><small>（视频文件稍后添加）</small></p>
+        </div>
       </div>
       
       <div class="video-controls">
@@ -93,11 +86,30 @@ const goBack = () => {
   margin-bottom: 2rem;
 }
 
-.birthday-video {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  max-height: 70vh;
+.video-placeholder {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  color: #e91e63;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.video-icon {
+  font-size: 4rem;
+  margin: 1rem 0;
+  animation: pulse 2s infinite;
+}
+
+.video-placeholder h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.video-placeholder p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
   border: none;
   outline: none;
   background: transparent;
