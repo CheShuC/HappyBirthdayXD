@@ -3,11 +3,15 @@
     <!-- 飘落蛋糕动画 -->
     <FallingFlowers />
     
+    <!-- 居中图片，图层在背景和文字之间 -->
+    <div class="center-image-container">
+      <img src="@/assets/images/fufu1.png" alt="生日图片" class="center-image">
+    </div>
+    
     <div class="home-content">
       <h1 class="home-title">🎉 生日快乐！ 🎉</h1>
-      <p class="home-message">愿你的每一天都充满甜蜜和快乐！</p>
       <button class="video-button" @click="goToVideo">
-        🎬 观看特别视频 🎬
+        点击我！
       </button>
     </div>
   </div>
@@ -50,10 +54,45 @@ const goToVideo = () => {
   left: 0;
 }
 
+/* 居中图片容器 */
+.center-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* 在背景之上，文字之下 */
+  pointer-events: none; /* 防止图片干扰点击事件 */
+}
+
+/* 居中图片样式 */
+.center-image {
+  max-width: 90%; /* 放大到90% */
+  max-height: 90%; /* 放大到90% */
+  transform: scale(1.5); /* 额外放大1.5倍 */
+  object-fit: contain;
+  opacity: 0.8; /* 适当透明度，让文字更清晰 */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); /* 添加阴影效果 */
+  animation: float-gentle 6s ease-in-out infinite; /* 添加浮动动画 */
+}
+
+/* 浮动动画 */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
 .home-content {
   text-align: center;
   color: #d63384;
-  z-index: 1;
+  z-index: 2; /* 在图片之上 */
   position: relative;
 }
 
